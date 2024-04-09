@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI targetText;
+    public string youWonScene;
+    public string youLostScene;
     private int _targetAmount;
 
     // Start is called before the first frame update
@@ -25,6 +29,8 @@ public class GameManager : MonoBehaviour
         if(_targetAmount <= 0)
         {
             GameObject.Find("Game Manager").GetComponent<Timer>().EndGameTimer();
+            GameObject.Find("Game Manager").GetComponent<CrossFade>().FadeIn();
+            SceneManager.LoadScene(youWonScene);
         }
     }
 }

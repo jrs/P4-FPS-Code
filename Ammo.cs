@@ -31,4 +31,10 @@ public class Ammo : MonoBehaviour
         _ammoAmount -= 1;
         ammoText.text = "Ammo: " + _ammoAmount.ToString();
     }
+
+    public void AddAmmo()
+    {
+        _ammoAmount += _ammoBoxAmount;
+        ammoText.text = "Ammo: " + _ammoAmount.ToString();
+    }
 }

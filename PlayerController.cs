@@ -90,4 +90,13 @@ public class PlayerController : MonoBehaviour
             _ammo.RemoveAmmo();
         }
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Ammo Box"))
+        {
+            _ammo.AddAmmo();
+            other.gameObject.SetActive(false);
+        }
+    }
 }
